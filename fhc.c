@@ -1,6 +1,5 @@
 /*
 N. Kobald 2016-11-27
-
 */
 
 #include "fhc.h" 
@@ -70,11 +69,12 @@ void relabel_graph(Node G[FMAX], int map[FMAX]){
 		}
 	}
 }
+
 void create_bfs_labeling(Node GF[FMAX], int mapping[FMAX]) { 
 	int bfs_que[FMAX];
 	int visited[FMAX]; 
 	int i;
-	//init 
+
 	for(i=0;i<FMAX;i++) {
 		bfs_que[i] = -1; 
 		mapping[i] = -1;
@@ -83,9 +83,7 @@ void create_bfs_labeling(Node GF[FMAX], int mapping[FMAX]) {
 
 	int neighbour; 
 	int seen = -1; 
-	int cur = 0;
-	int q_start = 0;
-	int q_end = 0;
+	int cur, q_start, q_end = 0;
 
 	while(q_start<=q_end) {
 		mapping[cur] = seen++;
