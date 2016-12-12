@@ -20,7 +20,6 @@ int fhc_five(int startvert, int curvert, Node GF[FMAX], int visited[FMAX],
 			neighbour=GF[curvert].adj_to[i]; 
 			if(neighbour==startvert) {
 				printf(" Soln found. \n");
-				return 1; 
 
 			} 
 		}
