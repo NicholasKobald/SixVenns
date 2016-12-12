@@ -105,6 +105,7 @@ void print_path(int path[FMAX], int len) {
 	}
 	printf("\n"); 
 }
+
 int all_visited(int visited[FMAX]) {
 	int i;
 	for(i=0; i<FMAX;i++){
@@ -114,17 +115,20 @@ int all_visited(int visited[FMAX]) {
 	}
 	return 1;
 }
+
 /*
 	Index 0 in GD will be degree of the face. 
 */
+
 void compute_dual(int G[NMAX][DEGREE], 	Node GF[FMAX]){
+
 	edge visited[EMAX*2];
-	int num_inserted = 0;
 	edge GD[FMAX][FMAX]; 
-	int i, j;
 	edge next, start;
-	int count_faces = 0;
+	int count_faces, i, num_inserted = 0;
+
 	while(num_inserted<EMAX*2) {
+
 		i = 1;
 		next = find_next_edge(visited, G, num_inserted);
 		start = copy_edge(next); //thats the start edge
@@ -137,12 +141,12 @@ void compute_dual(int G[NMAX][DEGREE], 	Node GF[FMAX]){
 			GD[count_faces][i++] = copy_edge(next); 
 			next = rotate_edge(next, G); 
 		}
-		//Use an edge to store the degree temporararily b/c I'm scared of structs
+
 		edge count;
 		count.v = i;
 		count.u = -1; 
-		GD[count_faces][0] = count; 
-		count_faces++; 
+		GD[count_faces++][0] = count; 
+
 	}
 	construct_adjlist(GD, GF);	
 }

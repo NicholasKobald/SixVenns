@@ -1,5 +1,5 @@
 /*
-4-Venns
+6-Venns
 N. Kobald 2016-11-27
 */	
 #include "fhc.h" 
@@ -56,7 +56,7 @@ void print_faces(edge GD[FMAX][FMAX]) {
 		}
 		printf("\n");
 	}
-	printf("Done"); 
+	printf("Done\n"); 
 }
 
 void print_edge(edge e){
